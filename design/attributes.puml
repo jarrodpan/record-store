@@ -1,0 +1,21 @@
+@startdot
+digraph G {
+    Record -> Artist
+    Record -> Label
+    Record -> ReleaseYear
+    Record -> PressingYear
+    Record -> DiscogsRelease
+    Record -> WikipediaLink
+    Record -> ReleaseCountry
+    Record -> MatrixNumbers
+    Record -> Barcodes
+    Record -> MediaGrading
+    Record -> SleeveGrading
+    Record -> Format
+    Record -> Genre
+    
+}
+@enddot
+Artist, Label, Release Year, Pressing Year, Discogs Release,
+    Wikipedia Link, Release Country, Matrix Numbers, Barcodes,
+    Media/Sleeve Grading, Format, Genre

@@ -1,0 +1,219 @@
+```plantuml
+
+@startuml
+' 
+' hide circles and make right angles
+hide circle
+skinparam linetype ortho
+'skinparam linetype polyline
+
+
+
+' Product - main focus of the diagrams
+entity Items {
+    + id : int(11) unsigned <<auto_increment>>
+    sku : varchar(255)
+    title : varchar(255)
+    'buyPrice : int(11)
+    price : int(11)
+    taxable : boolean
+    tangible : boolean
+    'bin : varchar(255)
+    available : boolean
+    listed : boolean
+    quantity : int (11)
+    description : varchar(2550)
+    notes : varchar(2550)
+    --
+    + primary key (id)
+    - constraint `CHK_ListAndNotAvailable` CHECK (`available` is true or (listed is false and available is false))
+}
+
+entity Tags {
+    + id : int(11) unsigned <<auto_increment>>
+    tag : varchar(255)
+    permalink : varchar(255)
+    # categoryID : int(11)
+    --
+    + primary key (id)
+    - foreign key (categoryID) references Categories(ID)
+}
+
+entity Categories {
+    + id : int(11) unsigned <<auto_increment>>
+    category : varchar(255)
+    permalink : varchar(255)
+    apiName : varchar(255)
+    --
+    + primary key (id)
+}
+
+' associative tables - tags and categories
+
+entity ItemTags {
+    '+ id : int(11) unsigned <<auto_increment>>
+    # itemID : int(11)
+    # tagID : int(11)
+    --
+    '- primary key (id)
+    + primary key (itemID, tagID)
+    - foreign key (itemID) references Product(ID)
+    - foreign key (tagID) references Tags(ID)
+}
+
+
+''' users
+entity Users {
+    + id: int(11) unsigned <<auto_increment>>
+    username : varchar(255)
+    password : varchar(255)
+    email : varchar(255)
+    access : int(11)
+    created : timestamp
+    'lastLogin : timestamp 'make part of logs 
+    --
+    + primary key(id)
+}
+''' users' api keys
+entity APIKeys {
+    + id: int(11) unsigned <<auto_increment>>
+    userID : int(11)
+    prefix : varchar(12)
+    keyHash : varchar(32)
+    created : timestamp
+    'lastLogin : timestamp 'make part of logs 
+    --
+    + primary key(id)
+}
+
+
+/''' expenses
+entity Purchases {
+    + id: int(11) unsigned <<auto_increment>>
+    # supplierID : int(11)
+    purchaseDate : timestamp
+    ---
+    + primary key (id)
+}
+
+entity PurchaseItems {
+    # purchaseID : int(11)
+    # itemID : int(11)
+    cost : int(11)
+    taxable : boolean
+    received : boolean
+    ---
+    + primary key (purchaseID, itemID)
+}
+'/
+
+
+''' expenses
+entity Orders {
+    + id: int(11) unsigned <<auto_increment>>
+    # customerID : int(11)
+    orderDate : timestamp 
+    ---
+    + primary key (id)
+}
+
+entity OrderItems {
+    # orderID : int(11)
+    # itemID : int(11)
+    'price : int(11)
+    taxable : boolean
+    purchase : boolean
+    dispatched : boolean
+    ---
+    + primary key (purchaseID, itemID)
+}
+
+''' barcoding
+entity Barcodes {
+    + id : int(11) unsigned <<auto_increment>>
+    # itemID : int(11) unsigned
+    # userID : int(11) unsigned
+    quantity : int(11) unsigned
+    ---
+    + primary key (id)
+    - foreign key (itemID) references Items(ID)
+    - foreign key (userID) references Users(ID)
+}
+
+''' images
+entity Images {
+    + id int(11) unsigned <<auto_increment>>
+    name varchar(255) not null
+    filepath varchar(255)
+    ---
+    + primary key (id)
+}
+
+entity ItemImages {
+    # itemID int
+    # imageID int
+    ---
+    primary key (itemID, imageID)
+    foreign key itemID
+    foreign key imageID
+    
+}
+
+' product can have zero or more tags
+Items }o--|{ ItemTags
+ItemTags }o-right-|{ Tags
+' tags belong to one or more categories
+Tags }o-right-|| Categories
+' items are purchased inbound
+'Items }o-right-|{ PurchaseItems
+'PurchaseItems }|-right-o{ Purchases
+' items are ordered outbound
+Items }o-right-|{ OrderItems
+OrderItems }|-right-o{ Orders
+
+' barcode printing
+Items }o-up-o{ Barcodes
+
+' images
+Items }o--o{ ItemImages
+ItemImages }o--o{ Images
+
+'formatting
+'OrderItems -[hidden]- PurchaseItems
+
+
+
+note as N1
+    Categories and tags can be used modularly. Example:
+    Artist, Label, Release Year, Pressing Year, Discogs Release,
+    Wikipedia Link, Release Country, Matrix Numbers, Barcodes,
+    Media/Sleeve Grading, Format, Genre, etc.
+    
+    Then use ~~magic~~ to make it display correctly :)
+end note
+
+
+
+/'
+entity Labels {
+    + id: int(11) unsigned <<auto_increment>>
+    name : varchar(255)
+    --
+    - primary key(id)
+}
+
+' labels have one or more products
+Product ||--o{ Labels
+*/
+entity Caategories {
+    + id: int(11) unsigned <<auto_increment>>
+    categoryName : varchar(255)
+    --
+    - primary key(id)
+}
+'/
+
+title Database.v3
+
+@enduml
+```

@@ -1,0 +1,107 @@
+```plantuml
+
+@startuml
+' 
+' hide circles and make right angles
+hide circle
+skinparam linetype ortho
+'skinparam linetype polyline
+
+
+
+' Product - main focus of the diagrams
+entity Product {
+    + id : int(11) <<auto_increment>>
+    sku : varchar(255)
+    title : varchar(255)
+    buyPrice : float(11)
+    sellPrice : float(11)
+    availableForSale : boolean
+    listForSale : boolean
+    sold : boolean
+    description : varchar(2550)
+    notes : varchar(2550)
+    --
+    - primary key (id)
+    - constraint : if not availableForSale, then not listForSale
+}
+
+entity Tags {
+    + id : int(11) <<auto_increment>>
+    tag : varchar(255)
+    --
+    - primary key (id)
+}
+
+entity Categories {
+    + id : int(11) <<auto_increment>>
+    category : varchar(255)
+    --
+    - primary key (id)
+}
+
+' associative tables
+
+entity ProductTags {
+    + id : int(11) <<auto_increment>>
+    # productID : int(11)
+    # tagID : int(11)
+    --
+    - primary key (id)
+    - foreign key (ProductID) references Product(ID)
+    - foreign key (TagID) references Tags(ID)
+}
+
+entity TagCategories {
+    + id : int(11) <<auto_increment>>
+    # categoryID : varchar(255)
+    # tagID : varchar(255)
+    --
+    - primary key (id)
+    - foreign key (categoryID) references Categories(ID)
+    - foreign key (TagID) references Tags(ID)
+}
+
+' product can have zero or more tags
+Product }o--|{ ProductTags
+ProductTags }o-right-|{ Tags
+' tags belong to one or more categories
+Tags }|-right-o{ TagCategories
+TagCategories }o--|{ Categories
+
+
+
+note as N1
+    Categories and tags can be used modularly. Example:
+    Artist, Label, Release Year, Pressing Year, Discogs Release,
+    Wikipedia Link, Release Country, Matrix Numbers, Barcodes,
+    Grading, Format, Genre, etc.
+    
+    Then use ~~magic~~ to make it display correctly :)
+end note
+
+
+
+/'
+entity Labels {
+    + id: int(11) <<auto_increment>>
+    name : varchar(255)
+    --
+    - primary key(id)
+}
+
+' labels have one or more products
+Product ||--o{ Labels
+*/
+entity Caategories {
+    + id: int(11) <<auto_increment>>
+    categoryName : varchar(255)
+    --
+    - primary key(id)
+}
+'/
+
+title Database.v1
+
+@enduml
+```

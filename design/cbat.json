@@ -1,0 +1,499 @@
+{
+    "styles": [
+        "Pop Rock"
+    ],
+    "videos": [
+        {
+            "duration": 330,
+            "description": "Steely Dan: Reelin' In The Years 2018 (HD)",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=nhG9TFtd0k4",
+            "title": "Steely Dan: Reelin' In The Years 2018 (HD)"
+        },
+        {
+            "duration": 362,
+            "description": "Steely Dan - Do It Again",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=aQnW-MxAU6U",
+            "title": "Steely Dan - Do It Again"
+        },
+        {
+            "duration": 285,
+            "description": "Reeling In The Years Steely Dan HD Remaster {Stereo}",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=v3XgOzT8C-I",
+            "title": "Reeling In The Years Steely Dan HD Remaster {Stereo}"
+        },
+        {
+            "duration": 195,
+            "description": "Steely Dan - Dirty Work",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=QrE_cDvcgJg",
+            "title": "Steely Dan - Dirty Work"
+        },
+        {
+            "duration": 232,
+            "description": "Steely Dan - Kings",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=FeYzQbBmYf8",
+            "title": "Steely Dan - Kings"
+        },
+        {
+            "duration": 253,
+            "description": "Steely Dan - Midnite Cruiser",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=HQ8npdy5uy0",
+            "title": "Steely Dan - Midnite Cruiser"
+        },
+        {
+            "duration": 182,
+            "description": "Steely Dan - Only a Fool Would Say That",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=06a19-S77F4",
+            "title": "Steely Dan - Only a Fool Would Say That"
+        },
+        {
+            "duration": 282,
+            "description": "Steely Dan - Reelin' in the Years",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=4dPRGfGmCmU",
+            "title": "Steely Dan - Reelin' in the Years"
+        },
+        {
+            "duration": 213,
+            "description": "Steely Dan - Fire in the Hole",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=WoUkIXVpw_4",
+            "title": "Steely Dan - Fire in the Hole"
+        },
+        {
+            "duration": 266,
+            "description": "Steely Dan - Brooklyn (Owes the Charmer Under Me)",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=gm_1ezIPKpU",
+            "title": "Steely Dan - Brooklyn (Owes the Charmer Under Me)"
+        },
+        {
+            "duration": 225,
+            "description": "Steely Dan - Change of the Guard",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=zL-4CH0eJBc",
+            "title": "Steely Dan - Change of the Guard"
+        },
+        {
+            "duration": 305,
+            "description": "Steely Dan - Turn That Heartbeat Over Again",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=334kdqpyzXQ",
+            "title": "Steely Dan - Turn That Heartbeat Over Again"
+        },
+        {
+            "duration": 2462,
+            "description": "Steely Dan, Can't Buy A Thrill 1972 (vinyl record)",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=ctjMF_-HCS0",
+            "title": "Steely Dan, Can't Buy A Thrill 1972 (vinyl record)"
+        },
+        {
+            "duration": 356,
+            "description": "Steely Dan - Turn That Heartbeat Over Again EXTENDED 8-TRACK VERSION",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=Z4o9dCn43jw",
+            "title": "Steely Dan - Turn That Heartbeat Over Again EXTENDED 8-TRACK VERSION"
+        },
+        {
+            "duration": 277,
+            "description": "Steely Dan - Brooklyn (Owes The Charmer Under Me) EXTENDED 8-TRACK VERSION",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=WM4TpV9t4vU",
+            "title": "Steely Dan - Brooklyn (Owes The Charmer Under Me) EXTENDED 8-TRACK VERSION"
+        },
+        {
+            "duration": 299,
+            "description": "STEELY DAN \u25ba Turn That Heartbeat Over Again\u3010HQ\u3011",
+            "embed": true,
+            "uri": "https://www.youtube.com/watch?v=mTk_tgec-w0",
+            "title": "STEELY DAN \u25ba Turn That Heartbeat Over Again\u3010HQ\u3011"
+        }
+    ],
+    "series": [],
+    "labels": [
+        {
+            "name": "ABC Records",
+            "entity_type": "1",
+            "catno": "YQ-8005-AB",
+            "resource_url": "https://api.discogs.com/labels/12220",
+            "id": 12220,
+            "entity_type_name": "Label"
+        }
+    ],
+    "year": 1976,
+    "community": {
+        "status": "Accepted",
+        "rating": {
+            "count": 9,
+            "average": 4.67
+        },
+        "have": 28,
+        "contributors": [
+            {
+                "username": "dan.lipcan",
+                "resource_url": "https://api.discogs.com/users/dan.lipcan"
+            },
+            {
+                "username": "djmifume",
+                "resource_url": "https://api.discogs.com/users/djmifume"
+            },
+            {
+                "username": "obi-vinyl-enthusiast",
+                "resource_url": "https://api.discogs.com/users/obi-vinyl-enthusiast"
+            },
+            {
+                "username": "venetian-guy",
+                "resource_url": "https://api.discogs.com/users/venetian-guy"
+            }
+        ],
+        "want": 195,
+        "submitter": {
+            "username": "dan.lipcan",
+            "resource_url": "https://api.discogs.com/users/dan.lipcan"
+        },
+        "data_quality": "Needs Vote"
+    },
+    "artists": [
+        {
+            "join": "",
+            "name": "Steely Dan",
+            "anv": "",
+            "tracks": "",
+            "role": "",
+            "resource_url": "https://api.discogs.com/artists/160906",
+            "id": 160906
+        }
+    ],
+    "images": [
+        {
+            "uri": "",
+            "height": 604,
+            "width": 600,
+            "resource_url": "",
+            "type": "primary",
+            "uri150": ""
+        }
+    ],
+    "format_quantity": 1,
+    "id": 5087466,
+    "artists_sort": "Steely Dan",
+    "genres": [
+        "Rock",
+        "Pop"
+    ],
+    "thumb": "",
+    "num_for_sale": 2,
+    "title": "Can't Buy A Thrill",
+    "date_changed": "2018-11-29T04:11:46-08:00",
+    "master_id": 16883,
+    "lowest_price": 39.99,
+    "status": "Accepted",
+    "released_formatted": "1976",
+    "estimated_weight": 230,
+    "master_url": "https://api.discogs.com/masters/16883",
+    "released": "1976",
+    "date_added": "2013-11-10T19:18:16-08:00",
+    "tracklist": [
+        {
+            "duration": "",
+            "position": "A1",
+            "type_": "track",
+            "title": "Do It Again"
+        },
+        {
+            "duration": "",
+            "position": "A2",
+            "type_": "track",
+            "title": "Dirty Work"
+        },
+        {
+            "duration": "",
+            "position": "A3",
+            "type_": "track",
+            "extraartists": [
+                {
+                    "join": "",
+                    "name": "Clydie King",
+                    "anv": "",
+                    "tracks": "",
+                    "role": "Backing Vocals",
+                    "resource_url": "https://api.discogs.com/artists/258111",
+                    "id": 258111
+                },
+                {
+                    "join": "",
+                    "name": "Sherlie Matthews",
+                    "anv": "",
+                    "tracks": "",
+                    "role": "Backing Vocals",
+                    "resource_url": "https://api.discogs.com/artists/258109",
+                    "id": 258109
+                },
+                {
+                    "join": "",
+                    "name": "Venetta Fields",
+                    "anv": "",
+                    "tracks": "",
+                    "role": "Backing Vocals",
+                    "resource_url": "https://api.discogs.com/artists/258113",
+                    "id": 258113
+                }
+            ],
+            "title": "Kings"
+        },
+        {
+            "duration": "",
+            "position": "A4",
+            "type_": "track",
+            "title": "Midnite Cruiser"
+        },
+        {
+            "duration": "",
+            "position": "A5",
+            "type_": "track",
+            "title": "Only A Fool Would Say That"
+        },
+        {
+            "duration": "",
+            "position": "B1",
+            "type_": "track",
+            "title": "Reelin' In The Years"
+        },
+        {
+            "duration": "",
+            "position": "B2",
+            "type_": "track",
+            "title": "Fire In The Hole"
+        },
+        {
+            "duration": "",
+            "position": "B3",
+            "type_": "track",
+            "extraartists": [
+                {
+                    "join": "",
+                    "name": "Clydie King",
+                    "anv": "",
+                    "tracks": "",
+                    "role": "Backing Vocals",
+                    "resource_url": "https://api.discogs.com/artists/258111",
+                    "id": 258111
+                },
+                {
+                    "join": "",
+                    "name": "Sherlie Matthews",
+                    "anv": "",
+                    "tracks": "",
+                    "role": "Backing Vocals",
+                    "resource_url": "https://api.discogs.com/artists/258109",
+                    "id": 258109
+                },
+                {
+                    "join": "",
+                    "name": "Venetta Fields",
+                    "anv": "",
+                    "tracks": "",
+                    "role": "Backing Vocals",
+                    "resource_url": "https://api.discogs.com/artists/258113",
+                    "id": 258113
+                }
+            ],
+            "title": "Brooklyn (Owes The Charmer Under Me)"
+        },
+        {
+            "duration": "",
+            "position": "B4",
+            "type_": "track",
+            "title": "Change Of The Guard"
+        },
+        {
+            "duration": "",
+            "position": "B5",
+            "type_": "track",
+            "title": "Turn That Heartbeat Over Again"
+        }
+    ],
+    "extraartists": [
+        {
+            "join": "",
+            "name": "Robert Lockart",
+            "anv": "",
+            "tracks": "",
+            "role": "Cover, Design",
+            "resource_url": "https://api.discogs.com/artists/1908034",
+            "id": 1908034
+        },
+        {
+            "join": "",
+            "name": "Jim Hodder",
+            "anv": "",
+            "tracks": "",
+            "role": "Drums, Percussion, Vocals",
+            "resource_url": "https://api.discogs.com/artists/336763",
+            "id": 336763
+        },
+        {
+            "join": "",
+            "name": "Walter Becker",
+            "anv": "",
+            "tracks": "",
+            "role": "Electric Bass, Vocals",
+            "resource_url": "https://api.discogs.com/artists/93280",
+            "id": 93280
+        },
+        {
+            "join": "",
+            "name": "Roger Nichols",
+            "anv": "",
+            "tracks": "",
+            "role": "Engineer",
+            "resource_url": "https://api.discogs.com/artists/142837",
+            "id": 142837
+        },
+        {
+            "join": "",
+            "name": "Tim Weston",
+            "anv": "",
+            "tracks": "",
+            "role": "Engineer [Assistant]",
+            "resource_url": "https://api.discogs.com/artists/390390",
+            "id": 390390
+        },
+        {
+            "join": "",
+            "name": "Eugene Young",
+            "anv": "Snooky Young",
+            "tracks": "",
+            "role": "Flugelhorn",
+            "resource_url": "https://api.discogs.com/artists/363551",
+            "id": 363551
+        },
+        {
+            "join": "",
+            "name": "Elliott Randall",
+            "anv": "",
+            "tracks": "",
+            "role": "Guitar",
+            "resource_url": "https://api.discogs.com/artists/351798",
+            "id": 351798
+        },
+        {
+            "join": "",
+            "name": "Jeff Baxter",
+            "anv": "",
+            "tracks": "",
+            "role": "Guitar, Guitar [Spanish], Pedal Steel Guitar",
+            "resource_url": "https://api.discogs.com/artists/336761",
+            "id": 336761
+        },
+        {
+            "join": "",
+            "name": "Denny Dias",
+            "anv": "",
+            "tracks": "",
+            "role": "Guitar, Sitar [Electric]",
+            "resource_url": "https://api.discogs.com/artists/258117",
+            "id": 258117
+        },
+        {
+            "join": "",
+            "name": "Jack Adams (2)",
+            "anv": "JA",
+            "tracks": "",
+            "role": "Mastered By",
+            "resource_url": "https://api.discogs.com/artists/622686",
+            "id": 622686
+        },
+        {
+            "join": "",
+            "name": "Victor Feldman",
+            "anv": "",
+            "tracks": "",
+            "role": "Percussion",
+            "resource_url": "https://api.discogs.com/artists/255752",
+            "id": 255752
+        },
+        {
+            "join": "",
+            "name": "Donald Fagen",
+            "anv": "",
+            "tracks": "",
+            "role": "Piano, Electric Piano, Organ [Plastic], Vocals",
+            "resource_url": "https://api.discogs.com/artists/117225",
+            "id": 117225
+        },
+        {
+            "join": "",
+            "name": "Gary Katz",
+            "anv": "",
+            "tracks": "",
+            "role": "Producer",
+            "resource_url": "https://api.discogs.com/artists/192585",
+            "id": 192585
+        },
+        {
+            "join": "",
+            "name": "Jerome Richardson",
+            "anv": "",
+            "tracks": "",
+            "role": "Tenor Saxophone",
+            "resource_url": "https://api.discogs.com/artists/72480",
+            "id": 72480
+        },
+        {
+            "join": "",
+            "name": "David Palmer (4)",
+            "anv": "",
+            "tracks": "",
+            "role": "Vocals",
+            "resource_url": "https://api.discogs.com/artists/410308",
+            "id": 410308
+        }
+    ],
+    "country": "Japan",
+    "notes": "With orange obi strip and yellow target label.",
+    "identifiers": [
+        {
+            "type": "Label Code",
+            "description": "Side A",
+            "value": "AB-358-19"
+        },
+        {
+            "type": "Label Code",
+            "description": "Side B",
+            "value": "AB-358-20"
+        }
+    ],
+    "companies": [
+        {
+            "name": "Nippon Columbia Co., Ltd.",
+            "entity_type": "10",
+            "catno": "YQ-8005-AB",
+            "resource_url": "https://api.discogs.com/labels/213761",
+            "id": 213761,
+            "entity_type_name": "Manufactured By"
+        }
+    ],
+    "uri": "https://www.discogs.com/Steely-Dan-Cant-Buy-A-Thrill/release/5087466",
+    "formats": [
+        {
+            "descriptions": [
+                "LP",
+                "Album",
+                "Reissue"
+            ],
+            "text": "Gatefold",
+            "name": "Vinyl",
+            "qty": "1"
+        }
+    ],
+    "resource_url": "https://api.discogs.com/releases/5087466",
+    "data_quality": "Needs Vote"
+}

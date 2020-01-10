@@ -1,0 +1,119 @@
+{
+    "recordLabel": [
+        {
+            "@id": "https://www.discogs.com/label/1-ABC-Records",
+            "@type": "Organization",
+            "name": "ABC Records"
+        },
+        {
+            "@id": "https://www.discogs.com/label/10-Nippon-Columbia-Co-Ltd",
+            "@type": "Organization",
+            "name": "Nippon Columbia Co., Ltd."
+        }
+    ],
+    "description": "With orange obi strip and yellow target label.",
+    "image": "https://img.discogs.com/_RSYiqeb2i7898zoC5XNimZpWJ8=/fit-in/600x604/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-5087466-1438563378-8242.jpeg.jpg",
+    "releasedEvent": {
+        "startDate": 1976,
+        "@type": "PublicationEvent",
+        "location": {
+            "@type": "Country",
+            "name": "Japan"
+        }
+    },
+    "datePublished": 1976,
+    "aggregateRating": {
+        "ratingCount": 9,
+        "@type": "AggregateRating",
+        "ratingValue": "4.67"
+    },
+    "tracks": [
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Do It Again"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Dirty Work"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Kings"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Midnite Cruiser"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Only A Fool Would Say That"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Reelin' In The Years"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Fire In The Hole"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Brooklyn (Owes The Charmer Under Me)"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Change Of The Guard"
+        },
+        {
+            "duration": "PT0H00M00S",
+            "@type": "MusicRecording",
+            "name": "Turn That Heartbeat Over Again"
+        }
+    ],
+    "Offers": {
+        "priceCurrency": "USD",
+        "lowPrice": 39.99,
+        "offerCount": 2,
+        "availability": "http://schema.org/InStock",
+        "itemOffered": {
+            "@type": "Product",
+            "name": "Steely Dan - Can't Buy A Thrill"
+        },
+        "@type": "AggregateOffer"
+    },
+    "releaseOf": {
+        "name": "Can't Buy A Thrill",
+        "numTracks": 10,
+        "datePublished": 1976,
+        "byArtist": [
+            {
+                "@id": "https://www.discogs.com/artist/160906-Steely-Dan",
+                "@type": "MusicGroup",
+                "name": "Steely Dan"
+            }
+        ],
+        "@id": "https://www.discogs.com/master/view/16883",
+        "@type": "MusicAlbum"
+    },
+    "genre": [
+        "Rock",
+        "Pop",
+        "Pop Rock"
+    ],
+    "@id": "https://www.discogs.com/Steely-Dan-Cant-Buy-A-Thrill/release/5087466",
+    "musicReleaseFormat": "Vinyl",
+    "name": "Can't Buy A Thrill",
+    "numTracks": 10,
+    "catalogNumber": "YQ-8005-AB",
+    "@context": "http://schema.org",
+    "@type": "MusicRelease"
+}

@@ -1,0 +1,44 @@
+
+
+path style:
+
+/products/{i:id}
+
+braces key:
+	{i:name} : int
+	{s:name} : string
+	{*} : anything
+
+KISS verison:
+	{i} int
+	{s} string
+	{*} wildcard
+
+examples of matching:
+/products/1
+/products/1/
+
+regex for integer
+\/products\/([1-9]++)\/?
+^ path       ^ int     ^ trailling slash optional
+
+returns $id = (group 1 result)
+
+then it needs to pass this back to the callback
+
+
+how to acheive
+
+on route entry:
+take input path
+check for pattern matching syntax
+convert to appropriate regex
+save regex in routes array (optional: precompile)
+
+on routing:
+check input for regex match
+if matched, extract groups
+pass groups to callback
+
+
+this may be useful: https://www.php.net/manual/en/function.extract.php

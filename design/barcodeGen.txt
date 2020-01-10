@@ -1,0 +1,11 @@
+why bother using or writing libraries when I can hotlink a thousand png files
+
+<a href="https://www.barcodesinc.com/generator/"><img src="https://www.barcodesinc.com/generator/image.php?code=YQ-8005-AB&style=197&type=C128A&width=190&height=120&xres=1&font=4" alt="the barcode printer: free barcode generator" border="0"></a>
+
+https://www.barcodesinc.com/generator/image.php?code=YQ-8005-AB&style=197&type=C128A&width=190&height=50&xres=1&font=5
+https://www.barcodesinc.com/generator/image.php?code=1&style=197&type=C128A&width=64&height=50&xres=1&font=5
+
+
+bit cleaner: 
+
+http://www.barcode-generator.org/zint/api.php?bc_number=60&bc_data=CAT%20NUMBER-12AB
