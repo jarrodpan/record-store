@@ -22,11 +22,20 @@ $conn = $db->connect();
 // determine application: store, admin, api etc
 $app = explode('/',urldecode($_GET['p']));
 
+switch($app[0])
+{
+	case 'admin':
+		$router = new Router($_ROOT,'/admin');
+		break;
+	default:
+		$router = new Router($_ROOT);
+}
+
 
 // set templating system path
 Template::root($_ROOT);
 // start router
-$router = new Router($_ROOT);
+//$router = new Router($_ROOT);
 
 // ------------------------ Admin Panel
 // index file
