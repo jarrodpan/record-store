@@ -5,8 +5,8 @@ class Router {
 	//    preg_match_all('/\/users\/([1-9]++)\/?/g','/users/1',$m); var_dump($m);
 	
 	private $callbacks;
-	private $root = "";
-	private $prefix = "";
+	private static $root = "";
+	private static $prefix = "";
 	public static $ends = true;
 	
 	// on calling get() post() put() delete() put callbacks in array
@@ -32,7 +32,7 @@ class Router {
 	 */
 	public function __call($name,$args)
 	{
-		$regex = urldecode($this->prefix.$args[0]);
+		$regex = urldecode(self::$prefix.$args[0]);
 		// magic to detect trailing slash
 		$endSlash = ($regex[-1] == '/' ? '?' : '\/?');
 		// special case: root only '/'
@@ -77,14 +77,14 @@ class Router {
 	
 	public function __construct($root = "", $prefix = "")
 	{
-		$this->root = $root;
-		$this->prefix = $prefix;
+		self::$root = $root;
+		self::$prefix = $prefix;
 		// can put allowed methods here in future
 	}
 	
 	public static function redirect($uri)
 	{
-		header("Location: ".$root.$prefix.$uri);
+		header("Location: ".self::$root.self::$prefix.$uri);
 		die();
 	}
 	
@@ -115,11 +115,11 @@ class Router {
 		// extract path and remove specified root
 		$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 		$pos = false;
-		if (strlen($this->root) >= 0) // strpos does not work with empty strings
-			$pos = strpos($path, $this->root);
+		if (strlen(self::$root) >= 0) // strpos does not work with empty strings
+			$pos = strpos($path, self::$root);
 		//echo "pos: ".$pos;
 		if ($pos !== false && $pos == 0) // root is at start
-			$path = substr($path, strlen($this->root));
+			$path = substr($path, strlen(self::$root));
 		
 		// use pattern matching
 		$routes = $this->callbacks[$req];
