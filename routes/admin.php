@@ -18,10 +18,6 @@ $router->get('/', function () {
 	Template::header('Index');
 });
 
-
-
-
-
 // products view
 $router->get('/products', function () {
 	global $db, $conn;
@@ -64,8 +60,7 @@ $router->post('/products/add', function () {
 		// if barcode flag add to barcode queue
 		if($barcode) Barcode::addItemToQueue($conn,$new,1);
 		// go to new listing :)
-		header("Location: /DJJ/products/".$new);
-		die();
+		Router::redirect('/products/'.$new);
 	}
 	
 	//todo: failure message
@@ -98,12 +93,11 @@ $router->post('/products/{i}/update', function ($id) {
 		// if barcode flag add to barcode queue
 		if($barcode) Barcode::addItemToQueue($conn,$new,1);
 		// go to new listing :)
-		header("Location: /DJJ/products/".$new);
-		die();
+		Router::redirect('/products/'.$new);
 	}
 	
-	header("Location: /DJJ/products/".$itemid);
-	die();
+	Router::redirect('/products/'.$itemid);
+	
 	//todo: failure message
 	Template::header('Add New Product');
 	Template::addProduct();
@@ -128,8 +122,7 @@ $router->post('/products/{i}/tags/add', function ($id) {
 	//if ((int)$id != (int)$itemid) $router->redirect("/products/".$id);
 	
 	if(Item::addTag($conn, $itemid, $tagid)){
-		header("Location: /DJJ/products/".$itemid);
-		die();
+		Router::redirect('/products/'.$itemid);
 	}
 	die("ERERROR");
 	
@@ -142,11 +135,10 @@ $router->post('/products/{i}/tags/remove', function ($id) {
 	$itemid = $_POST['item-id'];
 	$tagid = $_POST['tag-id'];
 	
-	if ((int)$id != (int)$itemid) $router->redirect("/products/".$id);
+	if ((int)$id != (int)$itemid) Router::redirect("/products/".$id);
 	
 	Item::removeTag($conn, $itemid, $tagid);
-	header("Location: /DJJ/products/".$itemid);
-	die();
+	Router::redirect('/products/'.$itemid);
 });
 
 $router->post('/products/{i}/upload', function($id) {
@@ -159,8 +151,7 @@ $router->post('/products/{i}/upload', function($id) {
 	|| is_array($_FILES['upfile']['error']))
 	{
 		die("some sort of error");
-		header("Location: /DJJ/products/".$id);
-		die();
+		Router::redirect('/products/'.$id);
 	}
 	
 	switch ($_FILES['upfile']['error'])
@@ -207,9 +198,7 @@ $router->post('/products/{i}/upload', function($id) {
 	die("failed to move file");
 	}
 	
-	header("Location: /DJJ/products/".$id);
-	die();
-	
+	Router::redirect('/products/'.$id);
 });
 
 // add new products
@@ -262,8 +251,7 @@ $router->post('/tags/add', function () {
 	$permalink = Tags::slugify($tag);
 	$c_id = $_POST['c_id'];
 	$id = Tags::addTag($conn, $tag, $permalink, $c_id);
-	header("Location: /DJJ/tags");
-	die();
+	Router::redirect('/tags');
 });
 
 // add category
@@ -272,8 +260,7 @@ $router->post('/tags/add/category', function () {
 	$cat = $_POST['category'];
 	$slug = Tags::slugify($cat);
 	$id = Tags::addCategory($conn, $cat, $slug, $slug);
-	header("Location: /DJJ/tags");
-	die();
+	Router::redirect('/tags');
 });
 
 
@@ -317,7 +304,7 @@ $router->post('/users/add', function () {
 	
 	//var_dump($_POST);
 	//die;
-	header("Location: /DJJ/users/add");
+	Router::redirect('/users/add');
 	die($r);
 	//Template::addUser();
 });
