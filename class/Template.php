@@ -3,11 +3,13 @@
 class Template {
     
     private static $root;
+    private static $path;
     private static $ends = true;
     
-    public static function root($r)
+    public static function root($r = "", $p = "")
     {
         self::$root = $r;
+        self::$path = $p;
     }
     
     public function __callStatic($method, $args = null)
@@ -22,7 +24,7 @@ class Template {
     
     public static function out($page, $data = null)
     {
-        include($_SERVER['DOCUMENT_ROOT'].self::$root."/template/".$page.".php");
+        include($_SERVER['DOCUMENT_ROOT'].self::$root."/template/".$path.$page.".php");
     }
     
     public static function header($data = null)

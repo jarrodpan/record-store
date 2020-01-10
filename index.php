@@ -16,24 +16,28 @@
 require('config.php');
 
 // connect to DB... might move to closures in future
-$db = new Database();
-$conn = $db->connect();
+$conn = (new Database())->connect();
 
 // determine application: store, admin, api etc
 $app = explode('/',urldecode($_GET['p']));
 
+// check the first part of the path to detemine application
+// default will be store front
+// other paths: admin, api etc
 switch($app[0])
 {
 	case 'admin':
 		$router = new Router($_ROOT,'/admin');
+		Template::root($_ROOT,'/admin');
 		break;
 	default:
 		$router = new Router($_ROOT);
+		Template::root($_ROOT);
 }
 
 
 // set templating system path
-Template::root($_ROOT);
+
 // start router
 //$router = new Router($_ROOT);
 
@@ -45,7 +49,7 @@ $router->get('/', function () {
 
 // products view
 $router->get('/products', function () {
-	global $db, $conn;
+	global $conn;
 	Template::header("Latest Products");
 	Template::products();
 	//Template::header($artist.' - '.$productArr['title']);
@@ -54,7 +58,7 @@ $router->get('/products', function () {
 
 // add products view
 $router->get('/products/add', function () {
-	global $db, $conn;
+	global $conn;
 	
 	Template::header('Add New Product');
 	Template::addProduct();
@@ -62,7 +66,7 @@ $router->get('/products/add', function () {
 
 // add new product - products view
 $router->post('/products/add', function () {
-	global $db, $conn;
+	global $conn;
 	
 	//var_dump($_POST);
 	$id = $_POST['id'];
@@ -96,7 +100,7 @@ $router->post('/products/add', function () {
 
 // update product - products view
 $router->post('/products/{i}/update', function ($id) {
-	global $db, $conn;
+	global $conn;
 	
 	//var_dump($_POST);
 	$itemid = $_POST['id'];
@@ -132,7 +136,7 @@ $router->post('/products/{i}/update', function ($id) {
 
 // get products - loads via javascript
 $router->get('/products/{i}', function ($id) {
-	global $db, $conn;
+	global $conn;
 	
 	Template::header('Loading Product');
 	Template::addProduct();
@@ -140,7 +144,7 @@ $router->get('/products/{i}', function ($id) {
 
 // add product tag
 $router->post('/products/{i}/tags/add', function ($id) {
-	global $db, $conn;
+	global $conn;
 	
 	$itemid = $_POST['item-id'];
 	$tagid = $_POST['tag-id'];
@@ -158,7 +162,7 @@ $router->post('/products/{i}/tags/add', function ($id) {
 
 // remove product tag
 $router->post('/products/{i}/tags/remove', function ($id) {
-	global $db, $conn;
+	global $conn;
 	
 	$itemid = $_POST['item-id'];
 	$tagid = $_POST['tag-id'];
@@ -171,7 +175,7 @@ $router->post('/products/{i}/tags/remove', function ($id) {
 });
 
 $router->post('/products/{i}/upload', function($id) {
-	global $db, $conn;
+	global $conn;
 	
 	// stolen from https://www.php.net/manual/en/features.file-upload.php
 	//var_dump($_FILES);
@@ -236,7 +240,7 @@ $router->post('/products/{i}/upload', function($id) {
 // add new products
 /*
 $router->post('/products/add', function ($id=1) {
-	global $db, $conn;
+	global $conn;
 	Template::addEnds(false);
 	Router::$ends = false;
 	
@@ -250,7 +254,7 @@ $router->post('/products/add', function ($id=1) {
 // product view
 /*
 $router->get('/products/{i}', function ($id) {
-	global $db, $conn;
+	global $conn;
 	$tags = Tags::getTagsByItemID($conn, $id);
 	$tagsC = Tags::getTagsByItemID($conn, $id, true);
 	$product = Item::getItemByID($conn, $id);
@@ -270,7 +274,7 @@ $router->get('/products/{i}', function ($id) {
 
 // tag manager
 $router->get('/tags', function () {
-	global $db, $conn;
+	global $conn;
 	Template::header('Tag Manager');
 	$tags = Tags::getTagsByCategory($conn);
 	Template::tagManager($tags);
@@ -278,7 +282,7 @@ $router->get('/tags', function () {
 
 // add tag
 $router->post('/tags/add', function () {
-	global $db, $conn;
+	global $conn;
 	$tag = $_POST['tag'];
 	$permalink = Tags::slugify($tag);
 	$c_id = $_POST['c_id'];
@@ -289,7 +293,7 @@ $router->post('/tags/add', function () {
 
 // add category
 $router->post('/tags/add/category', function () {
-	global $db, $conn;
+	global $conn;
 	$cat = $_POST['category'];
 	$slug = Tags::slugify($cat);
 	$id = Tags::addCategory($conn, $cat, $slug, $slug);
@@ -302,7 +306,7 @@ $router->post('/tags/add/category', function () {
 
 // barcode printer
 $router->get('/barcodes', function () {
-	global $db, $conn;
+	global $conn;
 	Template::header('Barcode Manager');
 	$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
@@ -315,7 +319,7 @@ $router->get('/barcodes', function () {
 
 // add user
 $router->get('/users/add', function () {
-	global $db, $conn;
+	global $conn;
 	Template::header('Add New User');
 	//$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
@@ -324,7 +328,7 @@ $router->get('/users/add', function () {
 
 // add user
 $router->post('/users/add', function () {
-	global $db, $conn;
+	global $conn;
 	//Template::header('Add New User');
 	//$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
@@ -344,8 +348,16 @@ $router->post('/users/add', function () {
 });
 
 
-
-
+// login function
+$router->get('/login', function () {
+	global $conn;
+	Template::header('Login');
+	$user = User::loginUser($conn, 'jarrod', 'jarrod');
+	var_dump($user);
+	//$barcodes = Barcode::getBarcodeItems($conn);
+	//var_dump($barcodes);
+	Template::addUser();
+});
 
 
 
@@ -358,7 +370,7 @@ $router->post('/users/add', function () {
 // ------------------- API interface
 // tag autocomplete
 $router->get('/api/v1/tags/search/{s}', function ($str) {
-	global $db, $conn;
+	global $conn;
 	Template::addEnds(false);
 	Router::$ends = false;
 	// urldecode to get rid of %20 etc crap which messes up matching
@@ -374,7 +386,7 @@ $router->get('/api/v1/tags/search/{s}', function ($str) {
 
 // api get tag by category by item id
 $router->get('/api/v1/products/{i}/tags', function ($id) {
-	global $db, $conn;
+	global $conn;
 	Template::addEnds(false);
 	Router::$ends = false;
 	// urldecode to get rid of %20 etc crap which messes up matching
@@ -391,7 +403,7 @@ $router->get('/api/v1/products/{i}/tags', function ($id) {
 
 // api get item by id
 $router->get('/api/v1/products/{i}', function ($id) {
-	global $db, $conn;
+	global $conn;
 	Template::addEnds(false);
 	Router::$ends = false;
 	// urldecode to get rid of %20 etc crap which messes up matching
@@ -407,7 +419,7 @@ $router->get('/api/v1/products/{i}', function ($id) {
 
 // add new item via api post request
 $router->map(['post','put'],'/api/v1/products/add', function () {
-	global $db, $conn;
+	global $conn;
 	Template::addEnds(false);
 	Router::$ends = false;
 	
@@ -432,7 +444,7 @@ $router->map(['post','put'],'/api/v1/products/add', function () {
 });
 
 // $router->map(['PUT', 'DELETE'], '{*}', function () {
-// 	global $db, $conn;
+// 	global $conn;
 // 	Template::addEnds(false);
 // 	Router::$ends = false;
 	

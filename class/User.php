@@ -53,7 +53,8 @@ class User {
 		
 		$q->execute([':login' => $login, ':pass' => $hash]);
 		
-		return $q->fetch(PDO::FETCH_ASSOC);
+		//return $q->fetch(PDO::FETCH_ASSOC);
+		return $q->fetchObject(__CLASS__);
 	}
 	
 	
