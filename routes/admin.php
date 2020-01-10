@@ -9,21 +9,8 @@
  * @param  p Logical path to resource
  */
 
-// timing function
-//$stime = microtime(true);
-
-// include me to make problems go away
-require('config.php');
-
-// connect to DB... might move to closures in future
-$db = new Database();
-$conn = $db->connect();
-
-// set templating system path
-Template::root($_ROOT);
-
-// start router
 $router = new Router($_ROOT,'/admin');
+Template::root($_ROOT,'/admin');
 
 // ------------------------ Admin Panel
 // index file

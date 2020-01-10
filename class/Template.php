@@ -2,8 +2,8 @@
 
 class Template {
     
-    private static $root;
-    private static $path;
+    private static $root = "";
+    private static $path = "";
     private static $ends = true;
     
     public static function root($r = "", $p = "")
@@ -22,9 +22,14 @@ class Template {
         
     }
     
+    public static function rootPath()
+    {
+        return self::$root.self::$path;
+    }
+    
     public static function out($page, $data = null)
     {
-        include($_SERVER['DOCUMENT_ROOT'].self::$root."/template/".$path.$page.".php");
+        include($_SERVER['DOCUMENT_ROOT'].self::$root."/template".self::$path.'/'.$page.".php");
     }
     
     public static function header($data = null)

@@ -23,12 +23,13 @@ $app = explode('/',urldecode($_GET['p']));
 
 // check the first part of the path to detemine application
 // default will be store front
-// other paths: admin, api etc
+// other paths: admin, api, images, stylesheets/js, etc
 switch($app[0])
 {
 	case 'admin':
-		$router = new Router($_ROOT,'/admin');
-		Template::root($_ROOT,'/admin');
+
+		include('routes/admin.php');
+		die();
 		break;
 	default:
 		$router = new Router($_ROOT);
