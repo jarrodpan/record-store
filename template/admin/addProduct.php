@@ -365,7 +365,7 @@
 		</div>
 		
 		<h3>Image</h3>
-		<img src="/DJJ/admin/res/no-image.png" id="item-image" class="img-thumbnail mb-2">
+		<img src="/DJJ/res/no-image.png" id="item-image" class="img-thumbnail mb-2">
 		<form action="/DJJ/admin/products/i/upload" id="imageUpload" method="post" enctype="multipart/form-data">
 			<div class="input-group mb-2">
 				<input type="file" class="form-control" name="upfile" id="image" required>
