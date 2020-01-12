@@ -12,6 +12,9 @@
 // timing function
 //$stime = microtime(true);
 
+// start session for logins
+session_start();
+
 // include me to make problems go away
 require('config.php');
 
