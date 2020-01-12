@@ -54,7 +54,12 @@ class User {
 		$q->execute([':login' => $login, ':pass' => $hash]);
 		
 		//return $q->fetch(PDO::FETCH_ASSOC);
-		return $q->fetchObject(__CLASS__);
+		$user = $q->fetchObject(__CLASS__);
+		
+		// touch last login if successful
+		if ($user) $conn->query("update users set lastLogin = CURRENT_TIMESTAMP where id = ".$user->id);
+		
+		return $user;
 	}
 	
 	
