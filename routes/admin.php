@@ -37,11 +37,19 @@ $router->post('/login', function() {
 	{
 		// put user into session
 		$_SESSION['user'] = $user;
+		$_SESSION['loggedin'] = true;
 		Router::redirect('/');
 	}
 	
 	// login failed
 	Router::redirect('/login');
+	
+});
+
+$router->get('/logout', function() {
+	
+	session_destroy();
+	Router::redirect("/");
 	
 });
 

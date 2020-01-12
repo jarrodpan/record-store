@@ -56,6 +56,9 @@
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/login">Login</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?=self::rootPath();?>/logout">Logout</a>
+    </li>
     </ul>
   </ul>
 </nav>
