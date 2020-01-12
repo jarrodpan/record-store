@@ -76,6 +76,10 @@ class User {
 		if (isset($_SESSION['loggedin']) && $successPath) Router::redirect($successPath);
 	}
 	
+	public static function isAuthenticated()
+	{
+		return isset($_SESSION['loggedin']);
+	}
 	
 	public function __get($name)
 	{

@@ -28,6 +28,7 @@
 </div>
 
 <nav class="navbar navbar-expand-sm bg-light">
+<?php if (User::isAuthenticated()) { ?>
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/">Home</a>
@@ -51,15 +52,19 @@
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/users/add">Add User</a>
     </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::rootPath();?>/login">Login</a>
-    </li>
+  </ul>
+<?php } ?>
+  <ul class="navbar-nav ml-auto">
+  <?php if (User::isAuthenticated()) { ?>
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/logout">Logout</a>
     </li>
-    </ul>
+  <?php } else { ?>
+    <li class="nav-item">
+      <a class="nav-link" href="<?=self::rootPath();?>/login">Login</a>
+    </li>
+  <?php } ?>
+  </ul>
   </ul>
 </nav>
 
