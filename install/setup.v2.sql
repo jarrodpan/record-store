@@ -58,6 +58,7 @@ create table Users (
 	email varchar(256) not null,
 	access int(11) not null default 0,
 	created timestamp not null default CURRENT_TIMESTAMP,
+	lastLogin timestamp not null,
 	primary key(id)
 ) engine=InnoDB ;
 
