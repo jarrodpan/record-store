@@ -63,6 +63,19 @@ class User {
 		return $user;
 	}
 	
+	public static function checkAuth($path = '/login', $successPath = false)
+	{
+		// the idea here is to direct to login page, and if logged in direct away from login page
+		// if not logged in, direct to login form
+		// if logged in and redirect set, go there instead
+		// may need to refine the logic
+		
+		// not logged in? go away
+		if (!isset($_SESSION['loggedin']) && !$successPath) Router::redirect($path);
+		// if logged in 
+		if (isset($_SESSION['loggedin']) && $successPath) Router::redirect($successPath);
+	}
+	
 	
 	public function __get($name)
 	{

@@ -15,18 +15,21 @@ Template::root($_ROOT,'/admin');
 // ------------------------ Admin Panel
 // index file
 $router->get('/', function () {
+	User::checkAuth();
 	Template::header('Index');
 	//var_dump($_SESSION);
 });
 
 
 $router->get('/login', function() {
+	User::checkAuth('/login', '/');
 	Template::header('Login');
 	Template::login();
 });
 
 $router->post('/login', function() {
 	global $conn;
+	User::checkAuth('/login', '/');
 	
 	$un = $_POST['username'];
 	$pw = $_POST['password'];
@@ -47,7 +50,6 @@ $router->post('/login', function() {
 });
 
 $router->get('/logout', function() {
-	
 	session_destroy();
 	Router::redirect("/");
 	
@@ -57,6 +59,8 @@ $router->get('/logout', function() {
 // products view
 $router->get('/products', function () {
 	global $conn;
+	User::checkAuth();
+	
 	Template::header("Latest Products");
 	Template::products();
 	//Template::header($artist.' - '.$productArr['title']);
@@ -66,6 +70,7 @@ $router->get('/products', function () {
 // add products view
 $router->get('/products/add', function () {
 	global $conn;
+	User::checkAuth();
 	
 	Template::header('Add New Product');
 	Template::addProduct();
@@ -74,8 +79,8 @@ $router->get('/products/add', function () {
 // add new product - products view
 $router->post('/products/add', function () {
 	global $conn;
+	User::checkAuth();
 	
-	//var_dump($_POST);
 	$id = $_POST['id'];
 	$sku = $_POST['sku'];
 	$title = $_POST['title'];
@@ -107,8 +112,8 @@ $router->post('/products/add', function () {
 // update product - products view
 $router->post('/products/{i}/update', function ($id) {
 	global $conn;
+	User::checkAuth();
 	
-	//var_dump($_POST);
 	$itemid = $_POST['id'];
 	$sku = $_POST['sku'];
 	$title = $_POST['title'];
@@ -142,6 +147,7 @@ $router->post('/products/{i}/update', function ($id) {
 // get products - loads via javascript
 $router->get('/products/{i}', function ($id) {
 	global $conn;
+	User::checkAuth();
 	
 	Template::header('Loading Product');
 	Template::addProduct();
@@ -150,6 +156,7 @@ $router->get('/products/{i}', function ($id) {
 // add product tag
 $router->post('/products/{i}/tags/add', function ($id) {
 	global $conn;
+	User::checkAuth();
 	
 	$itemid = $_POST['item-id'];
 	$tagid = $_POST['tag-id'];
@@ -167,6 +174,7 @@ $router->post('/products/{i}/tags/add', function ($id) {
 // remove product tag
 $router->post('/products/{i}/tags/remove', function ($id) {
 	global $conn;
+	User::checkAuth();
 	
 	$itemid = $_POST['item-id'];
 	$tagid = $_POST['tag-id'];
@@ -179,6 +187,7 @@ $router->post('/products/{i}/tags/remove', function ($id) {
 
 $router->post('/products/{i}/upload', function($id) {
 	global $conn;
+	User::checkAuth();
 	
 	// stolen from https://www.php.net/manual/en/features.file-upload.php
 	//var_dump($_FILES);
@@ -237,44 +246,11 @@ $router->post('/products/{i}/upload', function($id) {
 	Router::redirect('/products/'.$id);
 });
 
-// add new products
-/*
-$router->post('/products/add', function ($id=1) {
-	global $conn;
-	Template::addEnds(false);
-	Router::$ends = false;
-	
-	var_dump($_POST);
-	
-	//Template::header('Add New Product');
-	//Template::addProduct();
-});
-*/
-
-// product view
-/*
-$router->get('/products/{i}', function ($id) {
-	global $conn;
-	$tags = Tags::getTagsByItemID($conn, $id);
-	$tagsC = Tags::getTagsByItemID($conn, $id, true);
-	$product = Item::getItemByID($conn, $id);
-	//var_dump($tagsC,$product);
-	// extract artists
-	$artists = [];
-	foreach ($tagsC['Artist'] as $artist)
-	{
-		$artists[] = $artist['tag'];
-	}
-	$artistsText = implode(', ', $artists);
-	Template::header($artistsText.' &mdash; '.$product->title);
-	Template::product([$product->toArray(), $tags]);
-});
-*/
-
-
 // tag manager
 $router->get('/tags', function () {
 	global $conn;
+	User::checkAuth();
+	
 	Template::header('Tag Manager');
 	$tags = Tags::getTagsByCategory($conn);
 	Template::tagManager($tags);
@@ -283,6 +259,8 @@ $router->get('/tags', function () {
 // add tag
 $router->post('/tags/add', function () {
 	global $conn;
+	User::checkAuth();
+	
 	$tag = $_POST['tag'];
 	$permalink = Tags::slugify($tag);
 	$c_id = $_POST['c_id'];
@@ -293,6 +271,8 @@ $router->post('/tags/add', function () {
 // add category
 $router->post('/tags/add/category', function () {
 	global $conn;
+	User::checkAuth();
+	
 	$cat = $_POST['category'];
 	$slug = Tags::slugify($cat);
 	$id = Tags::addCategory($conn, $cat, $slug, $slug);
@@ -305,6 +285,8 @@ $router->post('/tags/add/category', function () {
 // barcode printer
 $router->get('/barcodes', function () {
 	global $conn;
+	User::checkAuth();
+	
 	Template::header('Barcode Manager');
 	$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
@@ -318,6 +300,8 @@ $router->get('/barcodes', function () {
 // add user
 $router->get('/users/add', function () {
 	global $conn;
+	User::checkAuth();
+	
 	Template::header('Add New User');
 	//$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
@@ -327,6 +311,8 @@ $router->get('/users/add', function () {
 // add user
 $router->post('/users/add', function () {
 	global $conn;
+	User::checkAuth();
+	
 	//Template::header('Add New User');
 	//$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
