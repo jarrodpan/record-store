@@ -16,6 +16,7 @@ Template::root($_ROOT,'/admin');
 // index file
 $router->get('/', function () {
 	Template::header('Index');
+	//var_dump($_SESSION);
 });
 
 
@@ -25,7 +26,22 @@ $router->get('/login', function() {
 });
 
 $router->post('/login', function() {
+	global $conn;
 	
+	$un = $_POST['username'];
+	$pw = $_POST['password'];
+	
+	$user = User::loginUser($conn, $un, $pw);
+	
+	if($user) // login successful
+	{
+		// put user into session
+		$_SESSION['user'] = $user;
+		Router::redirect('/');
+	}
+	
+	// login failed
+	Router::redirect('/login');
 	
 });
 

@@ -43,6 +43,7 @@ class User {
 		trim($password);
 		$hash = hash("sha256", $password);
 		
+		// TODO: remove select * and only get relevant columns
 		$st = <<<sql
 			select * from users
 			where pword = :pass and (username = :login or email = :login)
