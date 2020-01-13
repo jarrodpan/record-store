@@ -71,14 +71,28 @@ class User {
 		// may need to refine the logic
 		
 		// not logged in? go away
-		if (!isset($_SESSION['loggedin']) && !$successPath) Router::redirect($path);
+		$auth = self::isAuthenticated();
+		//var_dump($auth);die();
+		if (!$auth && !$successPath) Router::redirect($path);
 		// if logged in 
-		if (isset($_SESSION['loggedin']) && $successPath) Router::redirect($successPath);
+		if ($auth && $successPath) Router::redirect($successPath);
 	}
 	
 	public static function isAuthenticated()
 	{
-		return isset($_SESSION['loggedin']);
+		$loggedIn = isset($_SESSION['loggedin']);
+		$activity = isset($_SESSION['lastactivity']);
+		if($loggedIn && $activity)
+		{
+			//echo "logged in";
+			$lastTime = $_SESSION['lastactivity'];
+			// if no activity for x time, log out
+			// todo: keep logged in
+			$expiry = 10*60; // 5 minutes
+			if(time() - $lastTime > $expiry) return false;
+			return true;
+		}
+		return false;
 	}
 	
 	public function __get($name)

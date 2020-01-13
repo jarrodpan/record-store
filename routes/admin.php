@@ -22,7 +22,8 @@ $router->get('/', function () {
 
 
 $router->get('/login', function() {
-	User::checkAuth('/login', '/');
+	//User::checkAuth('/login', '/');
+	if (User::isAuthenticated()) Router::redirect("/");
 	Template::header('Login');
 	Template::login();
 });
@@ -41,6 +42,7 @@ $router->post('/login', function() {
 		// put user into session
 		$_SESSION['user'] = $user;
 		$_SESSION['loggedin'] = true;
+		$_SESSION['lastactivity'] = time();
 		Router::redirect('/');
 	}
 	
@@ -51,7 +53,8 @@ $router->post('/login', function() {
 
 $router->get('/logout', function() {
 	session_destroy();
-	Router::redirect("/");
+	//var_dump($_SESSION);
+	Router::redirect("/login");
 	
 });
 
@@ -452,6 +455,7 @@ $router->map(['post','put'],'/api/v1/products/add', function () {
 $router->prepend(function () {
 	//Template::header();
 	//echo 'mysql time: ',(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"]),PHP_EOL;
+	//var_dump($_SESSION);
 });
 
 // add appending routing here
