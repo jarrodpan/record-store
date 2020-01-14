@@ -28,8 +28,8 @@
 </div>
 
 <nav class="navbar navbar-expand-sm bg-light">
-<?php if (User::isAuthenticated()) { ?>
   <ul class="navbar-nav">
+  <?php if (User::isAuthenticated()) { ?>
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/">Home</a>
     </li>
@@ -52,8 +52,12 @@
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/users/add">Add User</a>
     </li>
+    <?php } else { ?>
+    <li class="nav-item">
+      <a class="nav-link" href="<?=self::rootPath();?>/..">Back to Store</a>
+    </li>
+    <?php } ?>
   </ul>
-<?php } ?>
   <ul class="navbar-nav ml-auto">
   <?php if (User::isAuthenticated()) { ?>
     <li class="nav-item">

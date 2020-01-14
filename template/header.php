@@ -20,40 +20,32 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-sm bg-light">
+<a class="navbar-brand" href="#">Logo</a>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Latest Additions</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+  </ul>
+  
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Login</a>
+    </li>
+  </ul>
+
+</nav>
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1>Record Store</h1>
-    <p>You spin me right round baby</p>
+    <p>You spin me right round baby, like a record baby...</p>
   </div>
 </div>
-
-<nav class="navbar navbar-expand-sm bg-light">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/products">Products</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/products/1">Product ID: 1</a>
-    </li>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/products/add">Add Product</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/tags">Tag Manager</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/barcodes">Barcode Manager</a>
-    </li>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::$root;?>/users/add">Add User</a>
-    </li>
-  </ul>
-</nav>
-
-<div class="container pt-4">
-<h2 id="page-title"><?=$data;?></h2>
