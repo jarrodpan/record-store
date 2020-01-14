@@ -12,15 +12,33 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <style>
-  .footer {
-    margin-top: 1.5rem!important;
+	.primary-color {
+		background-color: #6B5B95;
+		color: white;
+	}
+	
+	a, a:visited {
+		color: white;
+	}
+	
+	a:hover,  a:focus {
+		color: #ddd;
+	}
+	
+  footer {
+	  margin-bottom: 0 !important;
+	  padding-bottom: 50px;
+  }
+  
+  .top-pad {
+	  padding-top: 100px;
   }
   </style>
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-expand-sm primary-color">
 <a class="navbar-brand" href="#">Logo</a>
   <!-- Links -->
   <ul class="navbar-nav">
@@ -34,8 +52,16 @@
       <a class="nav-link" href="#">Link 3</a>
     </li>
   </ul>
-  
+
   <ul class="navbar-nav ml-auto">
+	<li class="nav-item">
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Search">
+		<div class="input-group-append">
+		  <button class="btn btn-success" type="submit"><span class="fa fa-search"></span></button>
+		</div>
+	  </div>
+	</li>
     <li class="nav-item">
       <a class="nav-link" href="#">Login</a>
     </li>

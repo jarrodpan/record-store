@@ -54,7 +54,7 @@ $router->get('/', function () {
 $router->get('/login', function () {
 	global $conn;
 	Template::header('Login');
-	$user = User::loginUser($conn, 'jarrod', 'jarrod');
+	//$user = User::loginUser($conn, 'jarrod', 'jarrod');
 	var_dump($user);
 	//$barcodes = Barcode::getBarcodeItems($conn);
 	//var_dump($barcodes);
