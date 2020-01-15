@@ -40,7 +40,7 @@
 					<td>`+tags[key].category+`</td>
 					<td>`+tags[key].tag+`</td>
 					<td>
-						<form action="/DJJ/admin/products/`+id+`/tags/remove" method="post" class="btn-group-form tagForm" method="post" data-usage="tagForm">
+						<form action="<?=self::rootPath();?>/products/`+id+`/tags/remove" method="post" class="btn-group-form tagForm" method="post" data-usage="tagForm">
 				<input type="hidden" name="item-id" value="`+id+`">
 				<input type="hidden" name="tag-id" value="`+tags[key].id+`">
 						<button type="submit" class="btn btn-outline-danger btn-sm">Unlink</button>
@@ -79,7 +79,7 @@
 					<td>`+tags[key].category+`</td>
 					<td>`+tags[key].tag+`</td>
 					<td>
-						<form action="/DJJ/admin/products/`+id+`/tags/add" method="post" class="btn-group-form tagForm" method="post" data-usage="tagForm">
+						<form action="<?=self::rootPath();?>/products/`+id+`/tags/add" method="post" class="btn-group-form tagForm" method="post" data-usage="tagForm">
 				<input type="hidden" name="item-id" value="`+id+`">
 				<input type="hidden" name="tag-id" value="`+tags[key].id+`">
 						<button type="submit" class="btn btn-outline-success btn-sm">Link</button>
@@ -118,7 +118,7 @@
 		if (Number.isInteger(id)) { // last part of path is an integer
 			
 			// request product json
-			$.get('/DJJ/api/v1/products/'+id, function(data, status){
+			$.get('<?=self::rootPath();?>/api/v1/products/'+id, function(data, status){
 				//console.log(data);
 				Object.keys(data).forEach(function(key){
 					console.log(key+": "+data[key]);
@@ -139,7 +139,7 @@
 				// change submit button text
 				$("#btn-item-update").text("Update Item");
 				// change update form action
-				$("#itemForm").attr("action", "/DJJ/admin/products/"+id+"/update");
+				$("#itemForm").attr("action", "<?=self::rootPath();?>/products/"+id+"/update");
 				// turn off barcode switch
 				$("#barcode").prop("checked", false);
 				
@@ -152,14 +152,14 @@
 			});
 			
 			// request tag json
-			$.get('/DJJ/api/v1/products/'+id+'/tags', getItemTags);
+			$.get('<?=self::rootPath();?>/api/v1/products/'+id+'/tags', getItemTags);
 			
 			// set image upload action
-			$("#imageUpload").attr('action', '/DJJ/admin/products/'+id+'/upload');
+			$("#imageUpload").attr('action', '<?=self::rootPath();?>/products/'+id+'/upload');
 			
 			// get image if exists
-			$('#item-image').attr('src', '/DJJ/res/items/'+id+'.jpg');//.error(function() {
-				//$('#item-image').attr('src', '/DJJ/admin/res/no-image.png');
+			$('#item-image').attr('src', '<?=self::rootPath();?>/res/items/'+id+'.jpg');//.error(function() {
+				//$('#item-image').attr('src', '<?=self::rootPath();?>/res/no-image.png');
 			//});
 			
 			
@@ -205,7 +205,7 @@
 				return;
 			};
 			prevSearch = $.ajax({
-				url: "/DJJ/api/v1/tags/search/"+query,
+				url: "<?=self::rootPath();?>/api/v1/tags/search/"+query,
 				beforeSend: function() {
 					if (prevSearch != "req" && prevSearch.readyState < 4) prevSearch.abort();
 				},
@@ -276,7 +276,7 @@
 			</div>
 		</form>
 
-		<form action="/DJJ/admin/products/add" class="itemForm" id="itemForm" data-usage="itemForm" method="POST">
+		<form action="<?=self::rootPath();?>/products/add" class="itemForm" id="itemForm" data-usage="itemForm" method="POST">
 			<input type="hidden" id="id" name="id" value="">
 			<div class="input-group mb-2 was-validated">
 				<div class="input-group-prepend">
@@ -365,8 +365,8 @@
 		</div>
 		
 		<h3>Image</h3>
-		<img src="/DJJ/res/no-image.png" id="item-image" class="img-thumbnail mb-2">
-		<form action="/DJJ/admin/products/i/upload" id="imageUpload" method="post" enctype="multipart/form-data">
+		<img src="<?=self::rootPath();?>/res/no-image.png" id="item-image" class="img-thumbnail mb-2">
+		<form action="<?=self::rootPath();?>/products/i/upload" id="imageUpload" method="post" enctype="multipart/form-data">
 			<div class="input-group mb-2">
 				<input type="file" class="form-control" name="upfile" id="image" required>
 				<label class="custom-file-label" for="image">Click to choose file</label>

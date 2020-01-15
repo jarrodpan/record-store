@@ -9,9 +9,6 @@
  * @param  p Logical path to resource
  */
 
-$router = new Router($_ROOT,'/admin');
-Template::root($_ROOT,'/admin');
-
 // ------------------------ Admin Panel
 // index file
 $router->get('/', function () {

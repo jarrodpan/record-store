@@ -24,7 +24,7 @@ class Template {
     
     public static function rootPath()
     {
-        return self::$root.self::$path;
+        return self::$root;//.self::$path;
     }
     
     public static function out($page, $data = null)

@@ -1,4 +1,4 @@
-<form action="/DJJ/admin/users/add" method="post">
+<form action="<?=self::rootPath();?>/users/add" method="post">
   <div class="form-group">
     <label for="username">Username:</label>
     <input type="text" class="form-control" placeholder="Enter username" id="username" name="username" required>

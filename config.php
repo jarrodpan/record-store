@@ -4,7 +4,7 @@
  *
 */
 
-$_ROOT = '/DJJ';
+$_ROOT = '';
 
 define('DB_UN', 'root');
 define('DB_PW', 'admin');

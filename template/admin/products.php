@@ -3,7 +3,7 @@
 <div class='card-columns'>
 <?php for($i = 0; $i < 12; $i++) { ?>
 <div class="card" style="" class="">
-	<img class="card-img-top" src="/DJJ/res/no-image.png" alt="Card image">
+	<img class="card-img-top" src="<?=self::rootPath();?>/res/no-image.png" alt="Card image">
 	<div class="card-body">
 		<h4 class="card-title">John Doe</h4>
 		<p class="card-text">Some example text.</p>

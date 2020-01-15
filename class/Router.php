@@ -115,7 +115,7 @@ class Router {
 		// extract path and remove specified root
 		$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 		$pos = false;
-		if (strlen(self::$root) >= 0) // strpos does not work with empty strings
+		if (strlen(self::$root) > 0) // strpos does not work with empty strings
 			$pos = strpos($path, self::$root);
 		//echo "pos: ".$pos;
 		if ($pos !== false && $pos == 0) // root is at start

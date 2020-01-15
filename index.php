@@ -22,20 +22,24 @@ require('config.php');
 $conn = (new Database())->connect();
 
 // determine application: store, admin, api etc
-$app = explode('/',urldecode($_GET['p']));
+//$app = explode('/',urldecode($_GET['p']));
 
 // check the first part of the path to detemine application
 // default will be store front
 // other paths: admin, api, images, stylesheets/js, etc
-switch($app[0])
+//switch($app[0])
+switch($_SERVER['HTTP_HOST'])
 {
-	case 'admin':
+	case 'djjadmin.localhost':
+		$router = new Router($_ROOT);
+		Template::root($_ROOT,'/admin');
 		include('routes/admin.php');
+		//var_dump($_SERVER);
 		die();
 		break;
 	default:
-		$router = new Router($_ROOT);
-		Template::root($_ROOT);
+		$router = new Router();//$_ROOT);
+		Template::root();//$_ROOT);
 }
 
 
