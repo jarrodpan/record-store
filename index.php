@@ -30,7 +30,7 @@ $conn = (new Database())->connect();
 //switch($app[0])
 switch($_SERVER['HTTP_HOST'])
 {
-	case 'djjadmin.localhost':
+	case HOSTNAME_ADMIN:
 		$router = new Router($_ROOT);
 		Template::root($_ROOT,'/admin');
 		include('routes/admin.php');

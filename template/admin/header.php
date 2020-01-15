@@ -52,11 +52,10 @@
     <li class="nav-item">
       <a class="nav-link" href="<?=self::rootPath();?>/users/add">Add User</a>
     </li>
-    <?php } else { ?>
-    <li class="nav-item">
-      <a class="nav-link" href="<?=self::rootPath();?>/..">Back to Store</a>
-    </li>
     <?php } ?>
+    <li class="nav-item">
+      <a class="nav-link" href="http://<?=HOSTNAME_STORE;?>">Back to Store</a>
+    </li>
   </ul>
   <ul class="navbar-nav ml-auto">
   <?php if (User::isAuthenticated()) { ?>

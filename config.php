@@ -5,6 +5,8 @@
 */
 
 $_ROOT = '';
+define('HOSTNAME_STORE','djj.localhost');
+define('HOSTNAME_ADMIN','djjadmin.localhost');
 
 define('DB_UN', 'root');
 define('DB_PW', 'admin');
