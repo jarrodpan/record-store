@@ -12,6 +12,24 @@ class Item {
 		//$var = [];
 	}
 	
+	public static function getLastest($conn, $count = 15)
+	{
+		$st = <<<sql
+			select * from items order by id desc limit ?
+		sql;
+		
+		$q = $conn->preapre($st);
+		$q->exec([$count]);
+		
+		$out = [];
+		while($item = $q->fetchObject(__CLASS__))
+		{
+			$item->tags = Item::getTagsByID($item->id);
+			$out[] = $item;
+		}
+		return $out;
+	}
+	
 	public static function getByID($id, $conn = null)
 	{
 		$out = self::getItemByID($conn, $id);
