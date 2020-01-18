@@ -52,6 +52,7 @@ switch($_SERVER['HTTP_HOST'])
 // index file
 $router->get('/', function () {
 	Template::header('Latest Products');
+	Template::index();
 });
 
 // login function

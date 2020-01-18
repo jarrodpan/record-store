@@ -126,3 +126,6 @@ select last_insert_id() as id from Items;
 
 -- get barcode queue
 select * from barcodes;
+
+-- get latest items
+select * from items order by id desc limit 15;

@@ -15,16 +15,19 @@ class Item {
 	public static function getLastest($conn, $count = 15)
 	{
 		$st = <<<sql
-			select * from items order by id desc limit ?
+			select * from items order by id desc limit 15
 		sql;
 		
-		$q = $conn->preapre($st);
-		$q->exec([$count]);
+		//$q = $conn->query($st);
+		$q = $conn->prepare($st);
+		$q->execute([$count]);
+		
+		//var_dump($q);
 		
 		$out = [];
 		while($item = $q->fetchObject(__CLASS__))
 		{
-			$item->tags = Item::getTagsByID($item->id);
+			$item->tags = Tags::getTagsByItemID($conn, $item->id, true);
 			$out[] = $item;
 		}
 		return $out;
