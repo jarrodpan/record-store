@@ -256,6 +256,22 @@ class Item {
 		//return "$d.$c";
 	}
 	
+	public function getImageURL()
+	{
+		$urls = [
+			'/res/items/'.$this->id.'.jpg',
+			'/res/items/'.$this->id.'.jpeg',
+			'/res/items/'.$this->id.'.png',
+		];
+		
+		foreach ($urls as $url)
+		{
+			if (file_exists($url)) return $url;
+		}
+		
+		return '/res/no-image.png';
+	}
+	
 	public function toArray()
 	{
 		return $this->var;
