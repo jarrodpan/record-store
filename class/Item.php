@@ -266,7 +266,7 @@ class Item {
 		
 		foreach ($urls as $url)
 		{
-			if (file_exists($url)) return $url;
+			if (file_exists($_SERVER['DOCUMENT_ROOT'].$url)) return $url;
 		}
 		
 		return '/res/no-image.png';
