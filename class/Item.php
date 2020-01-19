@@ -15,12 +15,16 @@ class Item {
 	public static function getLastest($conn, $count = 15)
 	{
 		$st = <<<sql
-			select * from items order by id desc limit 15
+			select * from items
+			where listed=1
+			order by id desc
+			limit :count
 		sql;
 		
 		//$q = $conn->query($st);
 		$q = $conn->prepare($st);
-		$q->execute([$count]);
+		$q->bindParam(':count', $count, PDO::PARAM_INT);
+		$q->execute();
 		
 		//var_dump($q);
 		
