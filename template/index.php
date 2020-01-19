@@ -45,13 +45,13 @@ echo '-->';
 	$counter = 0;
 	
 	$perRow = 6; // make sure this is divisible by 12
-	$colCSS = 'col-sm-'.(12/$perRow); // 
+	//$colCSS = 'col-lg-'.(12/$perRow); // 
 	
 	foreach($items as $item)
 	{
 		$counter++;
 		?>
-		<div class='<?=$colCSS;?>'>
+		<div class='col-sm-12 col-md-6 col-lg-4 col-xl-2'>
 			<div class='card'>
 				<div class='item-img'>
 			<img class="card-img-top" src="<?=$item->getImageURL();?>" alt="Card image">
