@@ -43,11 +43,15 @@ echo '-->';
 	<div class='row'>
 		<?php
 	$counter = 0;
+	
+	$perRow = 6; // make sure this is divisible by 12
+	$colCSS = 'col-sm-'.(12/$perRow); // 
+	
 	foreach($items as $item)
 	{
 		$counter++;
 		?>
-		<div class='col-sm-3'>
+		<div class='<?=$colCSS;?>'>
 			<div class='card'>
 				<div class='item-img'>
 			<img class="card-img-top" src="<?=$item->getImageURL();?>" alt="Card image">
@@ -65,7 +69,7 @@ echo '-->';
 		</div>
 		<?php
 		
-		if ($counter % 4 == 0)
+		if ($counter % $perRow == 0)
 		{
 			?>
 			</div><div class='row'>
